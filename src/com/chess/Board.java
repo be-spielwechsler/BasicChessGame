@@ -1,44 +1,32 @@
 package com.chess;
 
-
 public class Board {
-    protected Tile[][] tiles; // A 2-D array for all tiles that used to make uo the board
+    protected Tile[][] allTiles;
+    protected final int widthOfBoard = 8;
+    protected final int heightOfBoard = 8;
 
-    protected final int width; // width of board
-    protected final int height; // height of board
-
-    public Board(int boardWidth,int boardHeight)
-    {
-        tiles = new Tile[boardWidth][boardHeight];
-        this.initializeTiles(boardWidth,boardHeight);
-
-        width= boardWidth;
-        height= boardHeight;
-
+    public Board() {
+        allTiles = new Tile[widthOfBoard][heightOfBoard];
+        initializeTiles(widthOfBoard, heightOfBoard);
     }
-    private void initializeTiles(int width,int height)
-    {
-        for(int i=0;i<width;i++)
-        {
-            for(int j=0;j<height;j++){
-                Location newTile = new Location(i,j);
-                tiles[i][j]= new Tile(newTile,newTile.toString());
+
+    private void initializeTiles(int width, int height) {
+        for (int xSide = 0; xSide < width; xSide++) {
+            for (int ySide = 0; ySide < height; ySide++) {
+                CurrentLocation newTile = new CurrentLocation(xSide, ySide);
+                allTiles[xSide][ySide] = new Tile(newTile, newTile.toString());
 
             }
         }
     }
 
-    public int getWidth()
-    {
-        return width;
+    public int getWidthOfBoard() {
+        return widthOfBoard;
     }
-    public int getHeight()
-    {
-        return height;
+    public int getHeightOfBoard() {
+        return heightOfBoard;
     }
-    public Tile[][] getTiles()
-    {
-        return tiles;
+    public Tile[][] getAllTiles() {
+        return allTiles;
     }
-
 }

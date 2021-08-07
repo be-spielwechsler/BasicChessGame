@@ -1,21 +1,16 @@
 package com.chess;
 
 public class Tile {
-    private final Location location;
-    private final String name;
+    private final CurrentLocation currentLocation;
+    private final String tileName;
 
-    public Tile(Location tileLocation,String tileName)
-    {
-        location= tileLocation;
-        name= tileName;
+    public Tile(CurrentLocation tileLocation, String tileName) {
+        currentLocation = tileLocation;
+        this.tileName = tileName;
     }
 
-    public Location getLocation()
-    {
-        return location;
+    public CurrentLocation getCurrentLocation() {
+        return currentLocation;
     }
 
-    public String getName(){
-        return name;
-    }
 }
