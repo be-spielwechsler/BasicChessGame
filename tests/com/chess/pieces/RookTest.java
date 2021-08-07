@@ -24,7 +24,7 @@ class RookTest {
          xIndex = ('F' - 'A');
          yIndex = (3 - 1);
         String[] s = calculateRooksPotentialMoves(xIndex, yIndex);
-        String[] str = new String[]{"A3", "B3", "C3", "D3", "E3", "G3", "H3", "F1", "F2", "F4", "F5", "F6", "F7", "F8"};
+        String[] str = new String[]{"E3", "D3", "C3", "B3", "A3", "G3", "H3", "F2", "F1", "F4", "F5", "F6", "F7", "F8" };
         assertArrayEquals(str, s);
     }
 

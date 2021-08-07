@@ -13,84 +13,68 @@ public abstract class Piece extends CurrentCoordinates {
     int yPoint = myLocation.getyCoordinate();
     int width = board.getWidthOfBoard();
     int height = board.getHeightOfBoard();
+    public int upRight=1,downLeft=2,upLeft=3,downRight=4,right=5,left=6,up=7,down=8;
 
-    public void moveDiagonallyUpRight(ArrayList<Tile> moves) {
-        for (int xSide = (xPoint + 1), ySide = (yPoint + 1); xSide < width && ySide < height; xSide++, ySide++) {
-            moves.add(currentBoard[xSide][ySide]);
-        }
-    }
 
-    public void moveDiagonallyDownLeft(ArrayList<Tile> moves) {
-        for (int xSide = (xPoint - 1), ySide = (yPoint - 1); xSide >= 0 && ySide >= 0; xSide--, ySide--) {
-            moves.add(currentBoard[xSide][ySide]);
-        }
-    }
+    public abstract ArrayList<Tile> potentialMoves();
 
-    public void moveDiagonallyUpLeft(ArrayList<Tile> moves) {
-        for (int xSide = (xPoint - 1), ySide = (yPoint + 1); xSide >= 0 && ySide < height; xSide--, ySide++) {
-            moves.add(currentBoard[xSide][ySide]);
-        }
-    }
-
-    public void moveDiagonallyDownRight(ArrayList<Tile> moves) {
-        for (int xSide = (xPoint + 1), ySide = (yPoint - 1); xSide < width && ySide >= 0; xSide++, ySide--) {
-            moves.add(currentBoard[xSide][ySide]);
-        }
-    }
-
-    public void moveHorizontalInSameRow(ArrayList<Tile> moves) {
-        for (int xSide = 0; xSide < width; xSide++) {
-            if (xSide != xPoint)
+    public void moveHorizontalInSameRow(ArrayList<Tile> moves, int steps, int direction) {
+        int count = 0;
+        if (direction == right)
+            for (int xSide = xPoint + 1; xSide < width && count < steps; xSide++) {
                 moves.add(currentBoard[xSide][yPoint]);
-        }
+                count++;
+            }
+        if (direction == left)
+            for (int xSide = xPoint - 1; xSide >= 0 && count < steps; xSide--) {
+                moves.add(currentBoard[xSide][yPoint]);
+                count++;
+            }
     }
 
-    public void moveVerticalInSameColumn(ArrayList<Tile> moves) {
-        for (int ySide = 0; ySide < height; ySide++) {
-            if (ySide != yPoint)
+    public void moveVerticalInSameColumn(ArrayList<Tile> moves, int steps, int direction) {
+        int count = 0;
+        if (direction == up)
+            for (int ySide = yPoint + 1; ySide < height && count < steps; ySide++) {
                 moves.add(currentBoard[xPoint][ySide]);
-        }
+                count++;
+            }
+        if (direction == down)
+            for (int ySide = yPoint - 1; ySide >= 0 && count < steps; ySide--) {
+                moves.add(currentBoard[xPoint][ySide]);
+                count++;
+            }
     }
 
-    public void moveUpByOne(ArrayList<Tile> moves) {
-        if (yPoint + 1 < height)
-            moves.add(currentBoard[xPoint][yPoint + 1]);
+
+    public void moveDiagonallyAnticlockwise(ArrayList<Tile> moves, int steps, int direction) {
+        int count = 0;
+        if (direction == upLeft)
+            for (int xSide = (xPoint - 1), ySide = (yPoint + 1); xSide >= 0 && ySide < height && count < steps; xSide--, ySide++) {
+                moves.add(currentBoard[xSide][ySide]);
+                count++;
+            }
+        if (direction == downRight)
+            for (int xSide = (xPoint + 1), ySide = (yPoint - 1); xSide < width && ySide >= 0 && count < steps; xSide++, ySide--) {
+                moves.add(currentBoard[xSide][ySide]);
+                count++;
+            }
     }
 
-    public void moveUpLeftByOne(ArrayList<Tile> moves) {
-        if (yPoint + 1 < height && xPoint - 1 >= 0)
-            moves.add(currentBoard[xPoint - 1][yPoint + 1]);
+    public void moveDiagonallyClockwise(ArrayList<Tile> moves, int steps, int direction) {
+        int count = 0;
+        if (direction == upRight)
+            for (int xSide = (xPoint + 1), ySide = (yPoint + 1); xSide < width && ySide < height && count < steps; xSide++, ySide++) {
+                moves.add(currentBoard[xSide][ySide]);
+                count++;
+            }
+        if (direction == downLeft)
+            for (int xSide = (xPoint - 1), ySide = (yPoint - 1); xSide >= 0 && ySide >= 0 && count < steps; xSide--, ySide--) {
+                moves.add(currentBoard[xSide][ySide]);
+                count++;
+            }
     }
 
-    public void moveUpRightByOne(ArrayList<Tile> moves) {
-        if (yPoint + 1 < height && xPoint + 1 < width)
-            moves.add(currentBoard[xPoint + 1][yPoint + 1]);
-    }
-
-    public void moveDownByOne(ArrayList<Tile> moves) {
-        if (yPoint - 1 >= 0)
-            moves.add(currentBoard[xPoint][yPoint - 1]);
-    }
-
-    public void moveDownLeftByOne(ArrayList<Tile> moves) {
-        if (yPoint - 1 >= 0 && xPoint - 1 >= 0)
-            moves.add(currentBoard[xPoint - 1][yPoint - 1]);
-    }
-
-    public void moveDownRightByOne(ArrayList<Tile> moves) {
-        if (yPoint - 1 >= 0 && xPoint + 1 < width)
-            moves.add(currentBoard[xPoint + 1][yPoint - 1]);
-    }
-
-    public void moveLeftByOne(ArrayList<Tile> moves) {
-        if (xPoint - 1 >= 0)
-            moves.add(currentBoard[xPoint - 1][yPoint]);
-    }
-
-    public void moveRightByOne(ArrayList<Tile> moves) {
-        if (xPoint + 1 < width)
-            moves.add(currentBoard[xPoint + 1][yPoint]);
-    }
 
     public void moveRight2Up1(ArrayList<Tile> moves) {
         if (xPoint + 2 < width && yPoint + 1 < height)
@@ -132,5 +116,5 @@ public abstract class Piece extends CurrentCoordinates {
             moves.add(currentBoard[xPoint - 1][yPoint - 2]);
     }
 
-    public abstract ArrayList<Tile> potentialMoves();
+
 }

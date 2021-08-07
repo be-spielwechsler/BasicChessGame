@@ -29,9 +29,8 @@ class QueenTest {
         xIndex = ('D' - 'A');
         yIndex = (5 - 1);
         String[] s = calculateQueensPotentialMoves(xIndex, yIndex);
-        String[] str = new String[]{"A5", "B5", "C5", "E5", "F5", "G5", "H5", "D1", "D2", "D3", "D4",
-                "D6", "D7", "D8", "E6", "F7", "G8", "E4", "F3", "G2", "H1", "C6", "B7",
-                "A8", "C4", "B3", "A2"};
+        String[] str = new String[]{"C5", "B5", "A5", "E5", "F5", "G5", "H5", "D4", "D3", "D2", "D1", "D6",
+                "D7", "D8", "E6", "F7", "G8", "E4", "F3", "G2", "H1", "C6", "B7", "A8", "C4", "B3", "A2" };
         assertArrayEquals(str, s);
     }
 
@@ -40,8 +39,8 @@ class QueenTest {
         xIndex =  ('A' - 'A');
         yIndex = (1 - 1);
         String[] s = calculateQueensPotentialMoves(xIndex, yIndex);
-        String[] str = new String[]{"A8", "B8", "C8", "D8", "E8", "F8", "G8", "H1", "H2", "H3",
-                "H4", "H5", "H6", "H7", "G7", "F6", "E5", "D4", "C3", "B2", "A1"};
-        // assertArrayEquals(str, s);
+        String[] str = new String[]{"B1", "C1", "D1", "E1", "F1", "G1", "H1", "A2", "A3", "A4", "A5", "A6",
+                "A7", "A8", "B2", "C3", "D4", "E5", "F6", "G7", "H8" };
+        assertArrayEquals(str, s);
     }
 }

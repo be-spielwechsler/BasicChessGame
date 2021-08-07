@@ -8,15 +8,16 @@ import java.util.ArrayList;
 public class King extends Piece {
     @Override
     public ArrayList<Tile> potentialMoves() {
+        int steps=1;
         ArrayList<Tile> allMoves = new ArrayList<Tile>();
-        moveUpByOne(allMoves);
-        moveUpLeftByOne(allMoves);
-        moveUpRightByOne(allMoves);
-        moveDownByOne(allMoves);
-        moveDownLeftByOne(allMoves);
-        moveDownRightByOne(allMoves);
-        moveLeftByOne(allMoves);
-        moveRightByOne(allMoves);
+        moveVerticalInSameColumn(allMoves,steps,up);
+        moveDiagonallyAnticlockwise(allMoves,steps,upLeft);
+        moveDiagonallyClockwise(allMoves,steps,upRight);
+        moveVerticalInSameColumn(allMoves,steps,down);
+        moveDiagonallyClockwise(allMoves,steps,downLeft);
+        moveDiagonallyAnticlockwise(allMoves,steps,downRight);
+        moveHorizontalInSameRow(allMoves,steps,left);
+        moveHorizontalInSameRow(allMoves,steps,right);
         return allMoves;
     }
 }

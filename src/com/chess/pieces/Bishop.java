@@ -9,11 +9,14 @@ public class Bishop extends Piece {
 
     @Override
     public ArrayList<Tile> potentialMoves() {
+        int steps=8;
         ArrayList<Tile> allMoves = new ArrayList<Tile>();
-        moveDiagonallyUpRight(allMoves);
-        moveDiagonallyDownRight(allMoves);
-        moveDiagonallyUpLeft(allMoves);
-        moveDiagonallyDownLeft(allMoves);
+        moveDiagonallyClockwise(allMoves,steps,upRight);
+        moveDiagonallyAnticlockwise(allMoves,steps,downRight);
+        moveDiagonallyAnticlockwise(allMoves,steps,upLeft);
+        moveDiagonallyClockwise(allMoves,steps,downLeft);
+
+
         return allMoves;
     }
 }
