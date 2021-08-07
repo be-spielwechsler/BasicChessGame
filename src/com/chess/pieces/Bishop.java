@@ -8,7 +8,7 @@ import com.chess.Tile;
 import java.util.ArrayList;
 
 public class Bishop extends Piece {
-    // to initialize the currentTile variable of Piece abstract class so that when different pieces extends the Piece abstract class..
+    //  initialize the currentTile variable of Piece abstract class so that when different pieces extends the Piece abstract class..
     //..they already known from which current tile we have to calculate the possible moves
     //..and PieceType class pass this currentTile object reference to different pieces at the time it was in the...
     //..process of making the object of different concrete pieces
