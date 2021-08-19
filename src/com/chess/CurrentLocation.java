@@ -5,7 +5,7 @@ public class CurrentLocation {
     private static int yCoordinate;
 
     public CurrentLocation(int xCoordinate, int yCoordinate) {
-       this.xCoordinate = xCoordinate;
+        this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
 

@@ -26,7 +26,7 @@ class KingTest {
 
     @Test
     public void testKingsPotentialMoves() {
-        xIndex =  3;
+        xIndex = 3;
         yIndex = 4;
         String[] s = calculateKingsPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"D6", "C6", "E6", "D4", "C4", "E4", "C5", "E5"};
@@ -34,8 +34,8 @@ class KingTest {
     }
 
     @Test
-    public void testKingsCornerMoves() {
-        xIndex =  7;
+    public void testKingsCornerMove() {
+        xIndex = 7;
         yIndex = 7;
         String[] s = calculateKingsPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"H7", "G7", "G8"};

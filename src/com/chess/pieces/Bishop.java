@@ -10,13 +10,13 @@ public class Bishop extends DiagonalMoves implements Piece {
 
 
     @Override
-    public  ArrayList<Tile> potentialMoves() {
-        int steps=8;
+    public ArrayList<Tile> potentialMoves() {
+        int steps = 8;
         ArrayList<Tile> allMoves;
-        allMoves=moveDiagonallyClockwise(steps,upRight);
-        allMoves.addAll(moveDiagonallyAnticlockwise(steps,downRight));
-        allMoves.addAll(moveDiagonallyAnticlockwise(steps,upLeft));
-        allMoves.addAll(moveDiagonallyClockwise(steps,downLeft));
+        allMoves = moveDiagonallyClockwise(steps, upRight);
+        allMoves.addAll(moveDiagonallyAnticlockwise(steps, downRight));
+        allMoves.addAll(moveDiagonallyAnticlockwise(steps, upLeft));
+        allMoves.addAll(moveDiagonallyClockwise(steps, downLeft));
         return allMoves;
     }
 

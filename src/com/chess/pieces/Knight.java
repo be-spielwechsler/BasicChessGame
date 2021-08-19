@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Knight extends TwoAndHalfMoves implements Piece {
     @Override
-    public  ArrayList<Tile> potentialMoves() {
-        ArrayList<Tile> allMoves ;
-        allMoves=moveRight2Up1();
+    public ArrayList<Tile> potentialMoves() {
+        ArrayList<Tile> allMoves;
+        allMoves = moveRight2Up1();
         allMoves.addAll(moveRight2Down1());
         allMoves.addAll(moveLeft2Up1());
         allMoves.addAll(moveLeft2Down1());

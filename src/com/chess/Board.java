@@ -11,14 +11,14 @@ public class Board {
         allTiles = new Tile[widthOfBoard][heightOfBoard];
         initializeTiles(widthOfBoard, heightOfBoard);
         location = new CurrentLocation(xCoordinate, yCoordinate);
-        currentTile = new Tile(location,location.toString());
+        currentTile = new Tile(location, location.toString());
     }
 
     private static void initializeTiles(int width, int height) {
         for (int xSide = 0; xSide < width; xSide++) {
             for (int ySide = 0; ySide < height; ySide++) {
                 CurrentLocation newTile = new CurrentLocation(xSide, ySide);
-                allTiles[xSide][ySide] = new Tile(newTile,newTile.toString());
+                allTiles[xSide][ySide] = new Tile(newTile, newTile.toString());
 
             }
         }
@@ -29,26 +29,25 @@ public class Board {
         return allTiles[xSide][ySide];
     }
 
-    public static boolean isHorizontalMoveValid(int xSide)
-    {
-        if(xSide<widthOfBoard)
+    public static boolean isHorizontalMoveValid(int xSide) {
+        if (xSide < widthOfBoard)
             return true;
         else
             return false;
     }
-    public static boolean isVerticalMoveValid(int ySide)
-    {
-        if(ySide<heightOfBoard)
+
+    public static boolean isVerticalMoveValid(int ySide) {
+        if (ySide < heightOfBoard)
             return true;
         else
             return false;
     }
-    public static int getCurrentXCoordinate()
-    {
+
+    public static int getCurrentXCoordinate() {
         return location.getxCoordinate();
     }
-    public static int getCurrentYCoordinate()
-    {
+
+    public static int getCurrentYCoordinate() {
         return location.getyCoordinate();
     }
 }

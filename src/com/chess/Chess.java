@@ -11,9 +11,9 @@ public class Chess {
         final Scanner scanner = new Scanner(System.in);
         final PieceType type = PieceType.type(scanner.next());
         final char[] position = scanner.next().toCharArray();
-        final int xIndex =  (position[0] - 'A');
+        final int xIndex = (position[0] - 'A');
         final int yIndex = (position[1] - '1');
-         Board.initializeBoard(xIndex,yIndex);
+        Board.initializeBoard(xIndex, yIndex);
         final Piece piece = PieceType.createPiece(type);
 
         allMoves = piece.potentialMoves();

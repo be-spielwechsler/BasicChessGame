@@ -34,8 +34,8 @@ class KnightTest {
     }
 
     @Test
-    public void testKnightsCornerMoves() {
-        xIndex =  7;
+    public void testKnightsCornerMove() {
+        xIndex = 7;
         yIndex = 0;
         String[] s = calculateKnightsPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"F2", "G3"};

@@ -12,7 +12,7 @@ class BishopTest {
     private int yIndex;
 
     String[] calculateBishopsPotentialMoves(int xCoordinate, int yCoordinate) {
-       Board.initializeBoard(xCoordinate, yCoordinate);
+        Board.initializeBoard(xCoordinate, yCoordinate);
         final Piece piece = PieceType.createPiece(PieceType.Bishop);
         final ArrayList<Tile> allMoves = piece.potentialMoves();
         String[] s = new String[allMoves.size()];
@@ -26,7 +26,7 @@ class BishopTest {
 
     @Test
     public void testBishopsPotentialMoves() {
-        xIndex =  4;
+        xIndex = 4;
         yIndex = 2;
         String[] s = calculateBishopsPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"F4", "G5", "H6", "F2", "G1", "D4", "C5", "B6", "A7", "D2", "C1"};
@@ -34,7 +34,7 @@ class BishopTest {
     }
 
     @Test
-    public void testBishopsCornerMoves() {
+    public void testBishopsCornerMove() {
         xIndex = 7;
         yIndex = 7;
         String[] s = calculateBishopsPotentialMoves(xIndex, yIndex);

@@ -12,6 +12,9 @@ public class Tile {
     public CurrentLocation getCurrentLocation() {
         return currentLocation;
     }
-    public String getTileName(){return tileName;}
+
+    public String getTileName() {
+        return tileName;
+    }
 
 }
