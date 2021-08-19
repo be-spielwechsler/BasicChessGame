@@ -11,14 +11,14 @@ public class Board {
         allTiles = new Tile[widthOfBoard][heightOfBoard];
         initializeTiles(widthOfBoard, heightOfBoard);
         location = new CurrentLocation(xCoordinate, yCoordinate);
-        currentTile = new Tile(location, location.toString());
+        currentTile = new Tile(location.toString());
     }
 
     private static void initializeTiles(int width, int height) {
         for (int xSide = 0; xSide < width; xSide++) {
             for (int ySide = 0; ySide < height; ySide++) {
                 CurrentLocation newTile = new CurrentLocation(xSide, ySide);
-                allTiles[xSide][ySide] = new Tile(newTile, newTile.toString());
+                allTiles[xSide][ySide] = new Tile(newTile.toString());
 
             }
         }

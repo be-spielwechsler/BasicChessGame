@@ -6,7 +6,7 @@ import com.chess.Tile;
 import java.util.ArrayList;
 
 public class OneOr2Step90DMoves {
-    protected int up = 7;
+    private int up = 7;
     private int xPoint, yPoint;
     ArrayList<Tile> moves = new ArrayList<>();
 
