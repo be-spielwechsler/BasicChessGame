@@ -23,7 +23,6 @@ public class King implements Piece {
         allMoves.addAll(DiagonalMoves.moveDiagonallyAnticlockwise(steps, downRight));
         allMoves.addAll(ZeroAnd90DMoves.moveHorizontalInSameRow(steps, left));
         allMoves.addAll(ZeroAnd90DMoves.moveHorizontalInSameRow(steps, right));
-
         return allMoves;
     }
 }
