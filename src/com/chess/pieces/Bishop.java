@@ -2,21 +2,22 @@ package com.chess.pieces;
 
 import com.chess.Piece;
 import com.chess.Tile;
+import com.chess.moves.DiagonalMoves;
 
 import java.util.ArrayList;
 
-public class Bishop extends Piece {
+public class Bishop extends DiagonalMoves implements Piece {
+
 
     @Override
-    public ArrayList<Tile> potentialMoves() {
+    public  ArrayList<Tile> potentialMoves() {
         int steps=8;
-        ArrayList<Tile> allMoves = new ArrayList<Tile>();
-        moveDiagonallyClockwise(allMoves,steps,upRight);
-        moveDiagonallyAnticlockwise(allMoves,steps,downRight);
-        moveDiagonallyAnticlockwise(allMoves,steps,upLeft);
-        moveDiagonallyClockwise(allMoves,steps,downLeft);
-
-
+        ArrayList<Tile> allMoves;
+        allMoves=moveDiagonallyClockwise(steps,upRight);
+        allMoves.addAll(moveDiagonallyAnticlockwise(steps,downRight));
+        allMoves.addAll(moveDiagonallyAnticlockwise(steps,upLeft));
+        allMoves.addAll(moveDiagonallyClockwise(steps,downLeft));
         return allMoves;
     }
+
 }

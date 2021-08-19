@@ -12,13 +12,13 @@ class KnightTest {
     private int yIndex;
 
     String[] calculateKnightsPotentialMoves(int xCoordinate, int yCoordinate) {
-        CurrentCoordinates.setCoordinates(xCoordinate, yCoordinate);
+        Board.initializeBoard(xCoordinate, yCoordinate);
         final Piece piece = PieceType.createPiece(PieceType.Knight);
         final ArrayList<Tile> allMoves = piece.potentialMoves();
         String[] s = new String[allMoves.size()];
         int count = 0;
         for (Tile tile : allMoves) {
-            s[count] = (tile.getCurrentLocation().toString());
+            s[count] = (tile.getTileName());
             count++;
         }
         return s;
@@ -26,8 +26,8 @@ class KnightTest {
 
     @Test
     public void testKnightsPotentialMoves() {
-        xIndex = ('E' - 'A');
-        yIndex = (3 - 1);
+        xIndex = 4;
+        yIndex = 2;
         String[] s = calculateKnightsPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"G4", "G2", "C4", "C2", "F5", "D5", "F1", "D1"};
         assertArrayEquals(str, s);
@@ -35,8 +35,8 @@ class KnightTest {
 
     @Test
     public void testKnightsCornerMoves() {
-        xIndex =  ('H' - 'A');
-        yIndex = (1 - 1);
+        xIndex =  7;
+        yIndex = 0;
         String[] s = calculateKnightsPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"F2", "G3"};
         assertArrayEquals(str, s);

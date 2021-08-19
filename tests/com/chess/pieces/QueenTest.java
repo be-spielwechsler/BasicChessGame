@@ -12,13 +12,13 @@ class QueenTest {
     private int yIndex;
 
     String[] calculateQueensPotentialMoves(int xCoordinate, int yCoordinate) {
-        CurrentCoordinates.setCoordinates(xCoordinate, yCoordinate);
+        Board.initializeBoard(xCoordinate, yCoordinate);
         final Piece piece = PieceType.createPiece(PieceType.Queen);
         final ArrayList<Tile> allMoves = piece.potentialMoves();
         String[] s = new String[allMoves.size()];
         int count = 0;
         for (Tile tile : allMoves) {
-            s[count] = (tile.getCurrentLocation().toString());
+            s[count] = (tile.getTileName());
             count++;
         }
         return s;
@@ -26,8 +26,8 @@ class QueenTest {
 
     @Test
     public void testQueensPotentialMoves() {
-        xIndex = ('D' - 'A');
-        yIndex = (5 - 1);
+        xIndex = 3;
+        yIndex = 4;
         String[] s = calculateQueensPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"C5", "B5", "A5", "E5", "F5", "G5", "H5", "D4", "D3", "D2", "D1", "D6",
                 "D7", "D8", "E6", "F7", "G8", "E4", "F3", "G2", "H1", "C6", "B7", "A8", "C4", "B3", "A2" };
@@ -36,8 +36,8 @@ class QueenTest {
 
     @Test
     public void testQueensCornerMoves() {
-        xIndex =  ('A' - 'A');
-        yIndex = (1 - 1);
+        xIndex =  0;
+        yIndex = 0;
         String[] s = calculateQueensPotentialMoves(xIndex, yIndex);
         String[] str = new String[]{"B1", "C1", "D1", "E1", "F1", "G1", "H1", "A2", "A3", "A4", "A5", "A6",
                 "A7", "A8", "B2", "C3", "D4", "E5", "F6", "G7", "H8" };

@@ -1,19 +1,19 @@
 package com.chess;
 
 public class CurrentLocation {
-    private final int xCoordinate;
-    private final int yCoordinate;
+    private static int xCoordinate;
+    private static int yCoordinate;
 
     public CurrentLocation(int xCoordinate, int yCoordinate) {
        this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
 
-    public int getxCoordinate() {
+    public static int getxCoordinate() {
         return xCoordinate;
     }
 
-    public int getyCoordinate() {
+    public static int getyCoordinate() {
         return yCoordinate;
     }
 
